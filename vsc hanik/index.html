@@ -60,7 +60,7 @@
     PC: 10
   };
 
-  const sheetURL = "https://script.google.com/macros/s/AKfycbwMuJKzhsYEuQ4EeBj9NCB04SRmTAWXd1Ok6Z-vb6hRTfchQckD4nFvRgZ2CwW4uMRdrQ/exec"; 
+  const sheetURL = "https://script.google.com/macros/s/AKfycbwMuJKzhsYEuQ4EeBj9NCB04SRmTAWXd1Ok6Z-vb6hRTfchQckD4nFvRgZ2CwW4uMRdrQ/exec";
 
   function updateStokUI() {
     for (let alat in stok) {
@@ -99,20 +99,29 @@
     const waktu = new Date().toLocaleString();
     const data = { Nama: nama, Alat: alat, Aksi: aksi, Waktu: waktu };
 
-fetch(sheetURL, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(data)
-})
-.then(res => res.json())
-.then(resp => console.log("⚙️ WebApp respon:", resp))
-.catch(err => console.error("⚠️ Fetch error:", err));
-
+    fetch(sheetURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(async res => {
+      if (!res.ok) throw new Error("Respon tidak berhasil");
+      const result = await res.json();
+      console.log("✅ WebApp response:", result);
+    })
+    .catch(err => {
+      console.error("❌ Fetch error:", err);
+      alert("❌ Gagal mengirim data ke server.");
+    });
 
     const li = document.createElement("li");
     li.textContent = `${nama} ${aksi} ${alat} pada ${waktu}`;
     document.getElementById("log").prepend(li);
   }
+
+  updateStokUI();
 </script>
 
 </body>
