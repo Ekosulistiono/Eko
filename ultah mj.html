@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIFTAHUL JANNATI SAYANGKUU CINTAKU YG PALING CANTIK SEJAGAD RAYA INIII❤️❤️❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fff0f3;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .text-container {
+            margin-bottom: 50px;
+            opacity: 0;
+            text-align: center;
+            transition: opacity 1s;
+        }
+
+        h1 { font-family: 'Pacifico', cursive; color: #ff4d6d; font-size: 3rem; margin: 0; }
+        p { color: #590d22; font-weight: 600; }
+
+        .scene {
+            position: relative;
+            width: 500px;
+            height: 220px;
+            border-bottom: 5px solid #ffb3c1;
+        }
+
+        /* --- KUE --- */
+        .cake {
+            position: absolute;
+            bottom: 0;
+            left: 350px;
+            width: 100px;
+            height: 60px;
+            background: #ff8fa3;
+            border-radius: 10px 10px 0 0;
+        }
+        .cake::before {
+            content: '';
+            position: absolute;
+            top: 20px; left: 0; width: 100%; height: 15px;
+            background: #fff;
+        }
+
+        .candle {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 30px;
+            background: #f8ad9d;
+            border-radius: 2px;
+        }
+
+        .flame {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 18px;
+            background: orange;
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 10px orange;
+            animation: flicker 0.1s infinite alternate;
+        }
+
+        /* --- KARAKTER --- */
+        .character {
+            position: absolute;
+            bottom: 0;
+            left: -100px;
+            width: 80px;
+            height: 150px;
+            animation: walkToCake 4s ease-in-out forwards;
+        }
+
+        .hijab {
+            width: 65px; height: 80px;
+            background: #800f2f;
+            border-radius: 35px 35px 10px 10px;
+            position: absolute;
+            top: -5px; left: 8px;
+            z-index: 1;
+        }
+
+        .head {
+            width: 50px; height: 55px;
+            background: #ffdbac;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px; left: 15px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* MATA */
+        .eyes-container {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        .eye {
+            width: 6px; height: 6px;
+            background: #333;
+            border-radius: 50%;
+            animation: blink 3s infinite;
+        }
+
+        /* MULUT */
+        .mouth {
+            width: 10px; height: 5px;
+            border: 2px solid #333;
+            border-radius: 0 0 10px 10px;
+            border-top: 0;
+            margin-top: 8px;
+            transition: all 0.3s;
+        }
+
+        .body-char {
+            width: 50px; height: 75px;
+            background: #c9184a;
+            position: absolute;
+            top: 65px; left: 15px;
+            border-radius: 12px 12px 0 0;
+            z-index: 1;
+        }
+
+        .leg {
+            width: 15px; height: 20px;
+            background: #590d22;
+            position: absolute; bottom: -15px;
+        }
+        .leg.left { left: 20px; animation: legMove 0.5s infinite; }
+        .leg.right { right: 20px; animation: legMove 0.5s infinite reverse; }
+
+        /* --- STATE ANIMASI --- */
+        .blowing .mouth {
+            width: 6px; height: 6px;
+            border: 2px solid #333;
+            border-radius: 50%;
+        }
+
+        .happy .mouth {
+            width: 18px; height: 10px;
+            border: 2px solid #333;
+            border-radius: 0 0 20px 20px;
+            border-top: 0;
+        }
+
+        /* --- KEYFRAMES --- */
+        @keyframes walkToCake {
+            0% { left: -100px; }
+            70% { left: 260px; transform: rotate(0deg); }
+            80% { transform: rotate(12deg); } /* Nunduk meniup */
+            100% { left: 260px; transform: rotate(0deg); }
+        }
+
+        @keyframes blink {
+            0%, 90%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+
+        @keyframes legMove {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes flicker {
+            from { transform: translateX(-50%) scale(1); }
+            to { transform: translateX(-50%) scale(1.1); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="text-container" id="message">
+        <h1>Barakallah Fii Umrik!</h1>
+        <p>MIFTAHUL JANNATI SAYANGKUU CINTAKU YG PALING CANTIK SEJAGAD RAYA INIII❤️❤️❤️</p>
+    </div>
+
+    <div class="scene">
+        <div class="character" id="char">
+            <div class="hijab"></div>
+            <div class="head">
+                <div class="eyes-container">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="mouth" id="mouth"></div>
+            </div>
+            <div class="body-char"></div>
+            <div class="leg left" id="l1"></div>
+            <div class="leg right" id="l2"></div>
+        </div>
+
+        <div class="cake">
+            <div class="candle">
+                <div class="flame" id="flame"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const char = document.getElementById('char');
+        const mouth = document.getElementById('mouth');
+        const flame = document.getElementById('flame');
+        const message = document.getElementById('message');
+        const legs = [document.getElementById('l1'), document.getElementById('l2')];
+
+        // 1. Berhenti jalan & ubah mulut jadi "O" (meniup)
+        setTimeout(() => {
+            legs.forEach(l => l.style.animation = 'none');
+            char.classList.add('blowing');
+        }, 2800);
+
+        // 2. Lilin mati, mulut senyum, teks muncul
+        setTimeout(() => {
+            flame.style.display = 'none';
+            char.classList.remove('blowing');
+            char.classList.add('happy');
+            message.style.opacity = '1';
+            createConfetti();
+        }, 3600);
+
+        function createConfetti() {
+            for(let i=0; i<40; i++) {
+                const conf = document.createElement('div');
+                conf.innerText = ['🌸','✨','💖','🎉'][Math.floor(Math.random()*4)];
+                conf.style.position = 'absolute';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.top = '-20px';
+                conf.style.fontSize = Math.random() * 20 + 15 + 'px';
+                conf.style.transition = `transform ${Math.random() * 2 + 2}s linear, opacity 2s`;
+                document.body.appendChild(conf);
+                setTimeout(() => {
+                    conf.style.transform = `translateY(100vh) rotate(${Math.random() * 360}deg)`;
+                    conf.style.opacity = '0';
+                }, 100);
+            }
+        }
+    </script>
+</body>
+</html>
